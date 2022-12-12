@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{B09E6271-5759-D80D-1A0A-2CA39A9CA732}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScrollingBackground.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ScrollingBackground.cs" Line="14" Column="89" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Zombieland" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b5a04324-c3b0-4c9f-ae17-eb631aaea470" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

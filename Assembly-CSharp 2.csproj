@@ -87,9 +87,6 @@
     <Compile Include="Assets/Scripts/NewBehaviourScript.cs" />
     <Compile Include="Assets/Scripts/ScrollingBackground.cs" />
     <Compile Include="Assets/Scripts/Particule.cs" />
-    <Compile Include="Assets/Scripts/Particule 2.cs" />
-    <Compile Include="Assets/Scripts/NewBehaviourScript 2.cs" />
-    <Compile Include="Assets/Scripts/ScrollingBackground 2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/XML/SFX_InGame.xml" />
