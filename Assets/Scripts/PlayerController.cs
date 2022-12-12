@@ -31,11 +31,16 @@ public class PlayerController : SimpleGameStateObserver {
 	[SerializeField] private float m_GfxSwayPulsation;
 	Quaternion m_InitLocalOrientation;
 
+	float m_GameZoneHalfHeight;
+
 	protected override void Awake()
 	{
 		base.Awake();
 		m_Rigidbody = GetComponent<Rigidbody>();
 		m_InitLocalOrientation = m_Gfx.localRotation;
+
+		Vector3 cornerWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0,0,-Camera.main.transform.position.z));
+		m_GameZoneHalfHeight = Mathf.Abs(cornerWorldPos.y);
 	}
 
 	private void Update()
@@ -69,6 +74,18 @@ public class PlayerController : SimpleGameStateObserver {
 		Vector3 velocity =Vector3.ClampMagnitude( inputVector,1) * m_MaxTranslationSpeed;
 		m_Rigidbody.velocity = velocity ;
 		//Debug.Log("velocity = " + m_Rigidbody.velocity);
+
+		float deltaYPos = transform.position.y-m_GameZoneHalfHeight;
+		if(deltaYPos>0)
+		{
+			m_Rigidbody.MovePosition(transform.position-deltaYPos*Vector3.up);
+		}
+		deltaYPos = transform.position.y-(-m_GameZoneHalfHeight);
+		if(deltaYPos<0)
+		{
+			m_Rigidbody.MovePosition(transform.position-deltaYPos*Vector3.up);
+		}
+
 	}
 
 	private void Reset()
