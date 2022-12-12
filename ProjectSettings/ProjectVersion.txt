@@ -1,2 +1,12 @@
+<<<<<<< Updated upstream
 m_EditorVersion: 2020.3.39f1
 m_EditorVersionWithRevision: 2020.3.39f1 (fd6670bb8be9)
+=======
+<<<<<<< HEAD
+m_EditorVersion: 2022.1.16f1
+m_EditorVersionWithRevision: 2022.1.16f1 (7321c9670bc2)
+=======
+m_EditorVersion: 2020.3.39f1
+m_EditorVersionWithRevision: 2020.3.39f1 (fd6670bb8be9)
+>>>>>>> 6f7d4a35f3fb51fa6617cefc5e368c16bc42a8da
+>>>>>>> Stashed changes
