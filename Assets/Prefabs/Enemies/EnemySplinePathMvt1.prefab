@@ -1463,7 +1463,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.6603774, g: 0.14017446, b: 0.6132703, a: 1}
+      maxColor: {r: 0.29332697, g: 0.3584906, b: 0.25872198, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1841,6 +1841,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
+    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -5225,6 +5226,7 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -6057,6 +6059,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 4427473539940658}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 25a5181c2f0694117b134df85862d80d,
@@ -6135,6 +6138,7 @@ PrefabInstance:
       value: Z-3_Jetpack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a5181c2f0694117b134df85862d80d, type: 3}
 --- !u!4 &641791490077299818 stripped
 Transform:
