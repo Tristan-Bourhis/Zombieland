@@ -32,6 +32,7 @@ public class PlayerController : SimpleGameStateObserver {
 	Quaternion m_InitLocalOrientation;
 
 	float m_GameZoneHalfHeight;
+	float m_GameZoneHalfWeight;
 
 	protected override void Awake()
 	{
@@ -41,6 +42,7 @@ public class PlayerController : SimpleGameStateObserver {
 
 		Vector3 cornerWorldPos = Camera.main.ViewportToWorldPoint(new Vector3(0,0,-Camera.main.transform.position.z));
 		m_GameZoneHalfHeight = Mathf.Abs(cornerWorldPos.y);
+		m_GameZoneHalfWeight = Mathf.Abs(cornerWorldPos.x);
 	}
 
 	private void Update()
@@ -85,6 +87,17 @@ public class PlayerController : SimpleGameStateObserver {
 		{
 			m_Rigidbody.MovePosition(transform.position-deltaYPos*Vector3.up);
 		}
+		float deltaXPos =  transform.position.x-m_GameZoneHalfWeight;
+		if(deltaXPos>0)
+		{
+			m_Rigidbody.MovePosition(transform.position-deltaXPos*Vector3.right);
+		}
+		deltaXPos =  transform.position.x-(-m_GameZoneHalfWeight);
+		if(deltaXPos<0)
+		{
+			m_Rigidbody.MovePosition(transform.position-deltaXPos*Vector3.right);
+		}
+		
 
 	}
 
