@@ -3312,7 +3312,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Victory !
+  m_Text: Victory
 --- !u!222 &1021417196
 CanvasRenderer:
   m_ObjectHideFlags: 0
