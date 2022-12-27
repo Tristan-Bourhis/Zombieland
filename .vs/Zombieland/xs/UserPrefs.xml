@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{B09E6271-5759-D80D-1A0A-2CA39A9CA732}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Common/FlagsManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Common/SimpleGameStateObserver.cs">
     <Files>
-      <File FileName="Assets/Scripts/Common/MusicLoopsManager.cs" Line="97" Column="73" />
-      <File FileName="Assets/Scripts/Common/PlaySoundOnClick.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="12" Column="53" />
+      <File FileName="Assets/Scripts/Managers/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Managers/HudManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Managers/MenuManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Common/SimpleGameStateObserver.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Common/Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Common/SingletonGameStateObserver.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Common/FlagsManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +16,7 @@
               <Node name="Audio" expanded="True" />
               <Node name="Scripts" expanded="True">
                 <Node name="Common" expanded="True">
-                  <Node name="FlagsManager.cs" selected="True" />
+                  <Node name="SimpleGameStateObserver.cs" selected="True" />
                 </Node>
                 <Node name="EventManager" expanded="True" />
                 <Node name="Managers" expanded="True" />
