@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{B09E6271-5759-D80D-1A0A-2CA39A9CA732}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Common/FlagsManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Common/MusicLoopsManager.cs" Line="97" Column="73" />
+      <File FileName="Assets/Scripts/Common/PlaySoundOnClick.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Common/SimpleGameStateObserver.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Common/Singleton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Common/SingletonGameStateObserver.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Common/FlagsManager.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Zombieland" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Audio" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="Common" expanded="True">
+                  <Node name="FlagsManager.cs" selected="True" />
+                </Node>
+                <Node name="EventManager" expanded="True" />
+                <Node name="Managers" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="34e2f1d8-a896-4c5e-a827-8b93823c9c45" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
