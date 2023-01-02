@@ -97,7 +97,7 @@ public abstract class Pattern : MonoBehaviour, IPattern,IEventHandler {
 		m_Enemies.Remove(e.eEnemy);
 		if (IsPatternOver)
 		{
-			EventManager.Instance.Raise(new AllEnemiesOfPatternHaveBeenDestroyedEvent());
+			EventManager.Instance.Raise(new AllEnemiesOfPatternHaveBeenDestroyedEvent() { ePattern = this });
 		}
 	}
 	#endregion

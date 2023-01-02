@@ -111,7 +111,7 @@ public class GameManager : Manager<GameManager> {
 		EventManager.Instance.AddListener<ScoreItemEvent>(ScoreHasBeenGained);
 
 		//Pattern
-		EventManager.Instance.AddListener<PatternHasBeenInstantiatedEvent>(PatternHasBeenInstantiated);
+		EventManager.Instance.AddListener<PatternsHaveBeenInstantiatedEvent>(PatternsHaveBeenInstantiated);
 		EventManager.Instance.AddListener<AllEnemiesOfPatternHaveBeenDestroyedEvent>(AllEnemiesOfPatternHaveBeenDestroyed);
 	}
 
@@ -136,7 +136,7 @@ public class GameManager : Manager<GameManager> {
 		EventManager.Instance.RemoveListener<ScoreItemEvent>(ScoreHasBeenGained);
 
 		//Pattern
-		EventManager.Instance.RemoveListener<PatternHasBeenInstantiatedEvent>(PatternHasBeenInstantiated);
+		EventManager.Instance.RemoveListener<PatternsHaveBeenInstantiatedEvent>(PatternsHaveBeenInstantiated);
 		EventManager.Instance.RemoveListener<AllEnemiesOfPatternHaveBeenDestroyedEvent>(AllEnemiesOfPatternHaveBeenDestroyed);
 	}
 	#endregion
@@ -193,7 +193,7 @@ public class GameManager : Manager<GameManager> {
 	#endregion
 
 	#region Callbacks to events issued by Pattern
-	private void PatternHasBeenInstantiated(PatternHasBeenInstantiatedEvent e)
+	private void PatternsHaveBeenInstantiated(PatternsHaveBeenInstantiatedEvent e)
 	{ }
 	private void AllEnemiesOfPatternHaveBeenDestroyed(AllEnemiesOfPatternHaveBeenDestroyedEvent e)
 	{ }

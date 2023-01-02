@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 using Random = UnityEngine.Random;
 using SDD.Events;
+
+[System.Serializable]
+public class ParallelPatterns
+{
+	public List<GameObject> m_Patterns = new List<GameObject>();
+}
 
 public class EnemiesManager : Manager<EnemiesManager> {
 
 	[Header("EnemiesManager")]
 	#region patterns & current pattern management
-	[SerializeField] GameObject[] m_PatternsPrefabs;
-	private int m_CurrentPatternIndex;
-	private GameObject m_CurrentPatternGO;
-	private IPattern m_CurrentPattern;
-	public IPattern CurrentPattern { get { return m_CurrentPattern; } }
+	[SerializeField] List<ParallelPatterns> m_ParallelPatternsPrefabs = new List<ParallelPatterns>();
+	private int m_CurrentParallelPatternIndex;
+	private List<GameObject> m_CurrentPatternsGO = new List<GameObject>();
+	private List<IPattern> m_CurrentPatterns = new List<IPattern>();
+	
 	#endregion
 
 	#region Events' subscription
@@ -24,7 +31,7 @@ public class EnemiesManager : Manager<EnemiesManager> {
 
 		EventManager.Instance.AddListener<PatternHasFinishedSpawningEvent>(PatternHasFinishedSpawning);
 		EventManager.Instance.AddListener<AllEnemiesOfPatternHaveBeenDestroyedEvent>(AllEnemiesOfPatternHaveBeenDestroyed);
-		EventManager.Instance.AddListener<GoToNextPatternEvent>(GoToNextPattern);
+		EventManager.Instance.AddListener<GoToNextParallelPatternsEvent>(GoToNextParallelPatterns);
 	}
 
 	public override void UnsubscribeEvents()
@@ -33,7 +40,7 @@ public class EnemiesManager : Manager<EnemiesManager> {
 
 		EventManager.Instance.RemoveListener<PatternHasFinishedSpawningEvent>(PatternHasFinishedSpawning);
 		EventManager.Instance.RemoveListener<AllEnemiesOfPatternHaveBeenDestroyedEvent>(AllEnemiesOfPatternHaveBeenDestroyed);
-		EventManager.Instance.RemoveListener<GoToNextPatternEvent>(GoToNextPattern);
+		EventManager.Instance.RemoveListener<GoToNextParallelPatternsEvent>(GoToNextParallelPatterns);
 	}
 	#endregion
 
@@ -45,29 +52,46 @@ public class EnemiesManager : Manager<EnemiesManager> {
 	#endregion
 
 	#region Pattern flow
+
+	void DestroyPatterns()
+	{
+		m_CurrentPatternsGO.ForEach(item => Destroy(item));
+	}
+
 	void Reset()
 	{
-		Destroy(m_CurrentPatternGO);
-		m_CurrentPatternGO = null;
-		m_CurrentPatternIndex = -1;
+		DestroyPatterns();
+		m_CurrentPatternsGO = new List<GameObject>();
+		m_CurrentParallelPatternIndex = -1;
 	}
 
-	IPattern InstantiatePattern(int levelIndex)
+	List<IPattern> InstantiatePatterns(int levelIndex)
 	{
-		levelIndex = Mathf.Max(levelIndex, 0) % m_PatternsPrefabs.Length;
-		m_CurrentPatternGO = Instantiate(m_PatternsPrefabs[levelIndex]);
-		return m_CurrentPatternGO.GetComponent<IPattern>();
+		m_CurrentPatternsGO.Clear();
+
+		levelIndex = Mathf.Max(levelIndex, 0) % m_ParallelPatternsPrefabs.Count;
+		foreach(var item in m_ParallelPatternsPrefabs[levelIndex].m_Patterns)
+			m_CurrentPatternsGO.Add(Instantiate(item));
+
+		return m_CurrentPatternsGO.Select(item=>item.GetComponent<IPattern>()).ToList();
 	}
 
-	private IEnumerator InstantiatePatternCoroutine()
+	private IEnumerator InstantiateParallelPatternsCoroutine()
 	{
-		Destroy(m_CurrentPatternGO);
-		while (m_CurrentPatternGO) yield return null;
+		DestroyPatterns();
+		bool allPatternsNull = false;
+		do {
+			allPatternsNull = true;
+			foreach (var item in m_CurrentPatternsGO) if (item) allPatternsNull = false;
+			Debug.Log("allPatternsNull = "+ allPatternsNull + "     ");
+			yield return null;
+		}
+		while (!allPatternsNull) ;
 
-		m_CurrentPattern = InstantiatePattern(m_CurrentPatternIndex);
-		m_CurrentPattern.StartPattern();
+		m_CurrentPatterns = InstantiatePatterns(m_CurrentParallelPatternIndex);
+		foreach(var item in m_CurrentPatterns)  item.StartPattern();
 
-		EventManager.Instance.Raise(new PatternHasBeenInstantiatedEvent() { ePattern = m_CurrentPattern });
+		EventManager.Instance.Raise(new PatternsHaveBeenInstantiatedEvent() { ePatterns = m_CurrentPatterns });
 	}
 	#endregion
 
@@ -79,22 +103,23 @@ public class EnemiesManager : Manager<EnemiesManager> {
 	protected override void GamePlay(GamePlayEvent e)
 	{
 		Reset();
-		EventManager.Instance.Raise(new GoToNextPatternEvent());
+		EventManager.Instance.Raise(new GoToNextParallelPatternsEvent());
 	}
 	#endregion
 
 	#region Callbacks to EnemiesManager events
-	public void GoToNextPattern(GoToNextPatternEvent e)
+	public void GoToNextParallelPatterns(GoToNextParallelPatternsEvent e)
 	{
-		m_CurrentPatternIndex++;
-		StartCoroutine(InstantiatePatternCoroutine());
+		m_CurrentParallelPatternIndex++;
+		StartCoroutine(InstantiateParallelPatternsCoroutine());
 	}
 	#endregion
 
 	#region Callbacks to Pattern events
 	void AllEnemiesOfPatternHaveBeenDestroyed(AllEnemiesOfPatternHaveBeenDestroyedEvent e)
 	{
-		EventManager.Instance.Raise(new GoToNextPatternEvent());
+		m_CurrentPatterns.Remove(e.ePattern);
+		if(m_CurrentPatterns.Count==0) EventManager.Instance.Raise(new GoToNextParallelPatternsEvent());
 	}
 	void PatternHasFinishedSpawning(PatternHasFinishedSpawningEvent e)
 	{

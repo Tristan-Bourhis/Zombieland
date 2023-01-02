@@ -83,6 +83,7 @@ public class PlayerHasBeenHitEvent:SDD.Events.Event
 #region Pattern Events
 public class AllEnemiesOfPatternHaveBeenDestroyedEvent : SDD.Events.Event
 {
+	public IPattern ePattern;
 }
 
 public class PatternHasFinishedSpawningEvent:SDD.Events.Event
@@ -92,11 +93,11 @@ public class PatternHasFinishedSpawningEvent:SDD.Events.Event
 #endregion
 
 #region EnemiesManager Events
-public class PatternHasBeenInstantiatedEvent : SDD.Events.Event
+public class PatternsHaveBeenInstantiatedEvent : SDD.Events.Event
 {
-	public IPattern ePattern;
+	public List<IPattern> ePatterns;
 }
-public class GoToNextPatternEvent : SDD.Events.Event
+public class GoToNextParallelPatternsEvent : SDD.Events.Event
 {
 }
 #endregion
