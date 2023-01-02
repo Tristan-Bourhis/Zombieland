@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114804974684749522}
   - component: {fileID: 3342334505326114205}
   m_Layer: 8
-  m_Name: EnemySplinePathMvt1
+  m_Name: EnemySplinePathMvt2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b45428de6301840b3f76578db5a16f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxTranslationSpeed: 9
-  m_MinTranslationSpeed: 8
+  m_MaxTranslationSpeed: 12
+  m_MinTranslationSpeed: 9
   m_TranslationSpeedProbaCurve:
     serializedVersion: 2
     m_Curve:
