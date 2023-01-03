@@ -24,6 +24,12 @@ public abstract class Enemy : SimpleGameStateObserver,IScore {
 	[SerializeField] int m_Score;
 	public int Score { get { return m_Score; } }
 
+	[Header("Shoot")]
+	[SerializeField] private GameObject m_BulletPrefab;
+	[SerializeField] private float m_ShootPeriod;
+	private float m_NextShootTime = 0;
+	[SerializeField] private Transform m_BulletSpawnPoint;
+
 	protected bool m_Destroyed = false;
 
 	protected override void Awake()
@@ -44,12 +50,23 @@ public abstract class Enemy : SimpleGameStateObserver,IScore {
 			m_Destroyed = true;
 			Destroy(gameObject);
 		}
+
+		if (m_NextShootTime<Time.time)
+		{
+			ShootBullet();
+			m_NextShootTime = Time.time + m_ShootPeriod;
+		}
 	}
 
 	public virtual void FixedUpdate()
 	{
 		if (!GameManager.Instance.IsPlaying) return;
 		m_Rigidbody.MovePosition(m_Rigidbody.position + MoveVect);
+	}
+
+	void ShootBullet()
+	{
+		GameObject bulletGO = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(180,Vector3.forward));
 	}
 
 	private void OnCollisionEnter(Collision collision)

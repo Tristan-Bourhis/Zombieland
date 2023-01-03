@@ -113,9 +113,13 @@ public class PlayerController : SimpleGameStateObserver {
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.CompareTag("Enemy"))
+		if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Bullet"))
 		{
 			EventManager.Instance.Raise(new PlayerHasBeenHitEvent() { ePlayerController = this });
+		}
+		if(collision.gameObject.CompareTag("Bonus"))
+		{
+			EventManager.Instance.Raise(new PlayerHasBonusEvent() { ePlayerController = this });
 		}
 	}
 

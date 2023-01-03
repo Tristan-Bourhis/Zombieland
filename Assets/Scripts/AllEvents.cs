@@ -78,6 +78,10 @@ public class PlayerHasBeenHitEvent:SDD.Events.Event
 {
 	public PlayerController ePlayerController;
 }
+public class PlayerHasBonusEvent:SDD.Events.Event
+{
+	public PlayerController ePlayerController;
+}
 #endregion
 
 #region Pattern Events

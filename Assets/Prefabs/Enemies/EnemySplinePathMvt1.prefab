@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640943098963366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.222, y: 0, z: 0}
+  m_LocalPosition: {x: 0.498, y: 1.026, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,6 +124,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   m_Score: 10
+  m_BulletPrefab: {fileID: 1041039347957568, guid: f079c7812e6e9af4e88d06c296332a7c,
+    type: 3}
+  m_ShootPeriod: 5
+  m_BulletSpawnPoint: {fileID: 4546757359376846}
 --- !u!136 &3342334505326114205
 CapsuleCollider:
   m_ObjectHideFlags: 0

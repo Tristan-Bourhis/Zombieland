@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640943098963366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.222, y: 0, z: 0}
+  m_LocalPosition: {x: 0.614, y: 1.061, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,6 +122,10 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   m_Score: 10
+  m_BulletPrefab: {fileID: 1041039347957568, guid: f079c7812e6e9af4e88d06c296332a7c,
+    type: 3}
+  m_ShootPeriod: 2
+  m_BulletSpawnPoint: {fileID: 4546757359376846}
 --- !u!136 &3979906422518222014
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1841,7 +1845,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -5226,7 +5229,6 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
-    textureScale: {x: 1, y: 1}
     ribbonCount: 1
     shadowBias: 0.5
     worldSpace: 0
@@ -6059,7 +6061,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 3710934025063744133}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 25a5181c2f0694117b134df85862d80d,
@@ -6138,7 +6139,6 @@ PrefabInstance:
       value: Z-3_Jetpack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a5181c2f0694117b134df85862d80d, type: 3}
 --- !u!4 &1934535420762752046 stripped
 Transform:

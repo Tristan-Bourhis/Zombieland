@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 114097185237549416}
   - component: {fileID: 54661199430765098}
   - component: {fileID: 6233207425668012498}
-  m_Layer: 0
-  m_Name: Bullet
+  m_Layer: 8
+  m_Name: BulletEnemy
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4525910714085320}
   - component: {fileID: 33172339160482988}
   - component: {fileID: 23073133616876460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2319978dbea9454c8f6e2fc252b85a3, type: 2}
+  - {fileID: 2100000, guid: f2b12608d57f71b4fbf1be6f48742e3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

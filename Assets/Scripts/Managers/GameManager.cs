@@ -96,6 +96,7 @@ public class GameManager : Manager<GameManager> {
 
 		//PlayerController
 		EventManager.Instance.AddListener<PlayerHasBeenHitEvent>(PlayerHasBeenHit);
+		EventManager.Instance.AddListener<PlayerHasBonusEvent>(PlayerHasBonus);
 
 		//MainMenuManager
 		EventManager.Instance.AddListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
@@ -121,6 +122,7 @@ public class GameManager : Manager<GameManager> {
 
 		//PlayerController
 		EventManager.Instance.RemoveListener<PlayerHasBeenHitEvent>(PlayerHasBeenHit);
+		EventManager.Instance.RemoveListener<PlayerHasBonusEvent>(PlayerHasBonus);
 
 		//MainMenuManager
 		EventManager.Instance.RemoveListener<MainMenuButtonClickedEvent>(MainMenuButtonClicked);
@@ -176,12 +178,15 @@ public class GameManager : Manager<GameManager> {
 	private void PlayerHasBeenHit(PlayerHasBeenHitEvent e)
 	{
 		DecrementNLives(1);
-
 		if (m_NLives == 0)
 		{
 
 			Over();
 		}
+	}
+	private void PlayerHasBonus(PlayerHasBonusEvent e)
+	{
+		DecrementNLives(-1);
 	}
 	#endregion
 
