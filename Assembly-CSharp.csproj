@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/Common/SingletonGameStateObserver.cs" />
     <Compile Include="Assets/Scripts/EventManager/IEventHandler.cs" />
     <Compile Include="Assets/Scripts/Constants.cs" />
+    <Compile Include="Assets/Scripts/Managers/BonusManager.cs" />
     <Compile Include="Assets/Scripts/Common/Manager.cs" />
     <Compile Include="Assets/Scripts/Common/FlagsManager.cs" />
     <Compile Include="Assets/Scripts/Common/Singleton.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets/Scripts/Common/MusicLoopsManager.cs" />
     <Compile Include="Assets/Scripts/Managers/EnemiesManager.cs" />
     <Compile Include="Assets/Scripts/IScore.cs" />
+    <Compile Include="Assets/Scripts/Bonus.cs" />
     <Compile Include="Assets/Scripts/Pattern/RandomPattern.cs" />
     <Compile Include="Assets/Scripts/ScrollingBackground.cs" />
     <Compile Include="Assets/Scripts/Managers/HudManager.cs" />
