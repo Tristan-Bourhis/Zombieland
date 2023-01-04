@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: cityAtNight
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: 7b9d26bbbe05c4948b306b8aadd20024, type: 2}
+  m_Parent: {fileID: 2100000, guid: 126dd563bde304131b6dd4380e850030, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
