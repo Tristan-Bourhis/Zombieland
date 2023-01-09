@@ -10306,7 +10306,7 @@ MonoBehaviour:
   m_DoNotDestroyGameObjectOnLoad: 0
   m_Clips:
   - {fileID: 0}
-  - {fileID: 8300000, guid: 38314a02f8ea2b742bdcf1617324f2a1, type: 3}
+  - {fileID: 8300000, guid: ffc755e02e9562243a2b2fff2a65b19c, type: 3}
   m_FadeDuration: 2
   m_ShowGui: 0
 --- !u!82 &2080520097
