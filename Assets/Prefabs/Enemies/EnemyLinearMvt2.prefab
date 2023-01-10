@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8483c5a9b14254f959b62668d21925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxTranslationSpeed: 10
-  m_MinTranslationSpeed: 6
+  m_MaxTranslationSpeed: 12
+  m_MinTranslationSpeed: 10
   m_TranslationSpeedProbaCurve:
     serializedVersion: 2
     m_Curve:
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Score: 10
   m_BulletPrefab: {fileID: 1041039347957568, guid: f079c7812e6e9af4e88d06c296332a7c,
     type: 3}
-  m_ShootPeriod: 2
+  m_ShootPeriod: 3
   m_BulletSpawnPoint: {fileID: 4546757359376846}
 --- !u!136 &3979906422518222014
 CapsuleCollider:

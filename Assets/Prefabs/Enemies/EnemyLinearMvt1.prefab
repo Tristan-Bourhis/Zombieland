@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8483c5a9b14254f959b62668d21925, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxTranslationSpeed: 10
-  m_MinTranslationSpeed: 6
+  m_MaxTranslationSpeed: 12
+  m_MinTranslationSpeed: 10
   m_TranslationSpeedProbaCurve:
     serializedVersion: 2
     m_Curve:
