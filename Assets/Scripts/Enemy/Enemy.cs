@@ -31,6 +31,7 @@ public abstract class Enemy : SimpleGameStateObserver,IScore {
 	[SerializeField] private Transform m_BulletSpawnPoint;
 
 	protected bool m_Destroyed = false;
+	private int boss_HP = 15;
 
 	protected override void Awake()
 	{
@@ -67,6 +68,22 @@ public abstract class Enemy : SimpleGameStateObserver,IScore {
 	void ShootBullet()
 	{
 		GameObject bulletGO = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(180,Vector3.forward));
+		if(gameObject.CompareTag("Boss")==true)
+		{
+			GameObject bulletGO2 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(165,Vector3.forward));
+			GameObject bulletGO3 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(195,Vector3.forward));
+		}
+		if(boss_HP <= 10) 
+		{
+			GameObject bulletGO4 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(150,Vector3.forward));
+			GameObject bulletGO5 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(210,Vector3.forward));
+		}
+		if(boss_HP <= 5) 
+		{
+			GameObject bulletGO6 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(170,Vector3.forward));
+			GameObject bulletGO7 = Instantiate(m_BulletPrefab, m_BulletSpawnPoint.position, Quaternion.AngleAxis(190,Vector3.forward));
+		}
+		
 	}
 
 	private void OnCollisionEnter(Collision collision)
@@ -75,10 +92,18 @@ public abstract class Enemy : SimpleGameStateObserver,IScore {
 		if(collision.gameObject.CompareTag("Bullet")
 			|| collision.gameObject.CompareTag("Player"))
 		{
-			EventManager.Instance.Raise(new ScoreItemEvent() { eScore = this as IScore });
-			EventManager.Instance.Raise(new EnemyHasBeenDestroyedEvent() { eEnemy = this,eDestroyedByPlayer = true });
-			m_Destroyed = true;
-			Destroy(gameObject);
+			if(gameObject.CompareTag("Boss")==false || boss_HP == 0)
+			{
+				EventManager.Instance.Raise(new ScoreItemEvent() { eScore = this as IScore });
+				EventManager.Instance.Raise(new EnemyHasBeenDestroyedEvent() { eEnemy = this,eDestroyedByPlayer = true });						
+				m_Destroyed = true;
+				Destroy(gameObject);
+			}else 
+			{
+				boss_HP -= 1;
+				Debug.Log(boss_HP);
+			}
+			
 		}
 	}
 }
